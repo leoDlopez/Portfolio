@@ -39,7 +39,7 @@ const Navbar = props => {
             as="nav"
             w="100%"
             bg={useColorModeValue('#ffffff40', '#20202380')}
-            style={{ backdropFilter: 'blur(10px)' }}
+            css={{ backdropFilter: 'blur(10px)' }}
             zIndex={1}
             {...props}>
             <Container display="flex" p={2} maxW="container.md" wrap="wrap" align="center" justify="space-between">
@@ -61,7 +61,7 @@ const Navbar = props => {
                 <Box flex={1} align="right">
                     <ThemeToggleButton />
                     <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-                        <Menu>
+                        <Menu isLazy id="navbar-menu">
                             <MenuButton as={IconButton}
                                 icon={<HamburgerIcon />}
                                 variant="outline" aria-label="options" />
