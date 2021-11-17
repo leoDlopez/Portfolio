@@ -1,11 +1,17 @@
-import { Container, Box, Heading, Image, useColorModeValue, Button } from "@chakra-ui/react"
+import { Container, Box, Heading, Image, useColorModeValue, Button, SimpleGrid, List, ListItem, Icon, Link } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import Section from "../components/section"
 import Paragraph from "../components/paragraph"
 import { BioSection, BioYear } from "../components/bio"
 import Layout from '../components/layouts/article'
 import { ChevronRightIcon } from "@chakra-ui/icons"
-
+import {
+    IoLogoDiscord,
+    IoLogoGithub,
+    IoLogoLinkedin,
+    IoMail,
+} from 'react-icons/io5'
+import { GridItem } from "../components/grid-item"
 
 const Page = () => {
     return (
@@ -23,7 +29,7 @@ const Page = () => {
                         <p>Full-stack Developer</p>
                     </Box>
                     <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} align={"center"}>
-                        <Image borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" maxWidth="100px" display="inline-block" borderRadius="full" src="/images/winter.jpg" alt="Profile Image" />
+                        <Image borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" maxWidth="100px" display="inline-block" borderRadius="full" src="/images/profile_s.jpeg" alt="Profile Image" />
                     </Box>
                 </Box>
 
@@ -53,6 +59,42 @@ const Page = () => {
                         <BioYear>2017</BioYear>
                         Comenzó a estudiar en el Instituto Técnologico de Morelia la carrera de Ingenieria en Sistemas Computacionales
                     </BioSection>
+                </Section>
+
+                <Section delay={0.3}>
+                    <Heading as="h3" variant="section-title">
+                        On the web
+                    </Heading>
+                    <List>
+                        <ListItem>
+                            <Link href="https://github.com/leoDlopez" isExternal>
+                                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoGithub} />}>
+                                    @leoDlopez
+                                </Button>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="mailto:lopez_lopez_daniel@hotmail.com" isExternal>
+                                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoMail} />}>
+                                    lopez_lopez_daniel@hotmail.com
+                                </Button>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://discordapp.com/users/264267409618239489/" isExternal>
+                                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoDiscord} />}>
+                                    My Discord
+                                </Button>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://www.linkedin.com/in/leonardo-lopez-360/" isExternal>
+                                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoLinkedin} />}>
+                                    Linkedin
+                                </Button>
+                            </Link>
+                        </ListItem>
+                    </List>
                 </Section>
             </Container>
         </Layout>
