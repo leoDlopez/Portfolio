@@ -29,11 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/works/sgtepetate": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/works/sgtepetate.js"
     ]
   },
   "ampFirstPages": []

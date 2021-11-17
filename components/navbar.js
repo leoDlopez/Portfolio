@@ -17,6 +17,7 @@ import {
 
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import LocaleToggleButton from './locale-toggle-button'
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
@@ -59,6 +60,7 @@ const Navbar = props => {
                 </Stack>
 
                 <Box flex={1} align="right">
+                    <LocaleToggleButton />
                     <ThemeToggleButton />
                     <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
                         <Menu isLazy id="navbar-menu">

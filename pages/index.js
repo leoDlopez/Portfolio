@@ -12,13 +12,16 @@ import {
     IoMail,
 } from 'react-icons/io5'
 import { GridItem } from "../components/grid-item"
+import { useRouter } from "next/router"
 
 const Page = () => {
+    const router = useRouter()
+    let salutation = router.locale == 'es-MX' ? 'Hola, soy un Ingeniero de Software mexicano!' : "Hello, I'm a software engineer based in Mexico!"
     return (
         <Layout>
             <Container maxW="container.xl" mt={2}>
                 <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-                    Hello, I&apos;m a full-stack developer based in Mexico!
+                    {salutation}
                 </Box>
 
                 <Box display={{ md: 'flex' }}>
