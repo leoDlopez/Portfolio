@@ -27,7 +27,7 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / Bootstrap / MariaDB</span>
+                        <span>Laravel / Bootstrap / MariaDB / jQuery / JavaScript</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Repository</Meta>
