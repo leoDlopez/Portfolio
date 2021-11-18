@@ -14,6 +14,8 @@ import {
 import { GridItem } from "../components/grid-item"
 import { useRouter } from "next/router"
 import { Meta, MetaJob } from '../components/work'
+import { useRef, useEffect } from 'react'
+import { init } from 'ityped'
 
 const Page = () => {
     const router = useRouter()
@@ -37,11 +39,21 @@ const Page = () => {
     let zapateria = router.locale == 'es-MX' ?
         "" :
         ""
+    const textRef = useRef();
+
+    useEffect(() => {
+        textRef.current.innerHTML = ""
+        init(textRef.current, {
+            showCursor: true,
+            loop: false,
+            strings: [salutation]
+        });
+    }, [router.locale])
     return (
         <Layout>
             <Container maxW="container.xl" mt={2}>
                 <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-                    {salutation}
+                    <span ref={textRef}></span>
                 </Box>
 
                 <Box display={{ md: 'flex' }}>
