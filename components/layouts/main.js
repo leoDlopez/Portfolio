@@ -11,7 +11,6 @@ const Main = ({ children, router }) => {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/images/favicon.png" type="image/png" />
-                <link rel="stylesheet" href="/style.css" />
                 <title>Leonardo Lopez - Portfolio</title>
             </Head>
 
