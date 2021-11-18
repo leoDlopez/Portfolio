@@ -17,7 +17,7 @@ import TypeAnimation from 'react-type-animation';
 
 //icons
 import { FaCss3, FaGit, FaGithub, FaHtml5, FaJava, FaLaravel, FaLinux, FaNodeJs, FaNpm, FaPhp, FaPython, FaReact } from 'react-icons/fa'
-import { SiBootstrap, SiCplusplus, SiCsharp, SiCss3, SiExpress, SiJavascript, SiKotlin, SiMaterialui, SiNextdotjs, SiUbuntu, SiUikit } from 'react-icons/si'
+import { SiAndroidstudio, SiBootstrap, SiCisco, SiCplusplus, SiCsharp, SiCss3, SiExpress, SiGnubash, SiJavascript, SiKotlin, SiMariadb, SiMaterialui, SiMysql, SiNextdotjs, SiPostgresql, SiSwift, SiUbuntu, SiUikit } from 'react-icons/si'
 
 const Skill = ({ tooltip, children }) => (
     <Tooltip label={tooltip} fontSize="md">
@@ -109,6 +109,7 @@ const Page = () => {
                         <Skill tooltip="C++"> <SiCplusplus fontSize={30} /> </Skill>
                         <Skill tooltip="Python"> <FaPython fontSize={30} /> </Skill>
                         <Skill tooltip="Kotlin"> <SiKotlin fontSize={30} /> </Skill>
+                        <Skill tooltip="Swift"> <SiSwift fontSize={30} /> </Skill>
                         <Skill tooltip="HTML"> <FaHtml5 fontSize={30} /> </Skill>
                         <Skill tooltip="CSS"> <SiCss3 fontSize={30} /> </Skill>
                         <Skill tooltip="JavaScript"> <SiJavascript fontSize={30} /> </Skill>
@@ -121,8 +122,13 @@ const Page = () => {
                         <Skill tooltip="NPM"> <FaNpm fontSize={30} /> </Skill>
                         <Skill tooltip="Git"> <FaGit fontSize={30} /> </Skill>
                         <Skill tooltip="Github"> <FaGithub fontSize={30} /> </Skill>
-                        <Skill tooltip="Linux"> <FaLinux fontSize={30} /> </Skill>
+                        <Skill tooltip="Bash"> <SiGnubash fontSize={30} /> </Skill>
                         <Skill tooltip="Ubuntu"> <SiUbuntu fontSize={30} /> </Skill>
+                        <Skill tooltip="MySQL"> <SiMysql fontSize={30} /> </Skill>
+                        <Skill tooltip="Postgresql"> <SiPostgresql fontSize={30} /> </Skill>
+                        <Skill tooltip="MariaDB"> <SiMariadb fontSize={30} /> </Skill>
+                        <Skill tooltip="Android Studio"> <SiAndroidstudio fontSize={30} /> </Skill>
+                        <Skill tooltip="Cisco"> <SiCisco fontSize={30} /> </Skill>
                     </SimpleGrid>
                 </Section>
 
