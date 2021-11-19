@@ -10,10 +10,9 @@ const LocaleToggleButton = () => {
 
     return (
 
-
         <Link href={asPath} locale={locale === "es-MX" ? "en-US" : "es-MX"}>
             <IconButton aria-label="Toggle theme"
-                mr={4}
+                mr={2}
                 colorScheme={locale === "es-MX" ? 'blue' : 'gray'}
                 icon={<Icon as={IoLanguage} />}
             ></IconButton>

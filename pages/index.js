@@ -14,18 +14,25 @@ import {
 import { useRouter } from "next/router"
 import { Meta, MetaJob } from '../components/work'
 import TypeAnimation from 'react-type-animation';
+import { useState } from 'react'
 
 //icons
 import { FaCss3, FaGit, FaGithub, FaHtml5, FaJava, FaLaravel, FaLinux, FaNodeJs, FaNpm, FaPhp, FaPython, FaReact } from 'react-icons/fa'
 import { SiAndroidstudio, SiBootstrap, SiCisco, SiCplusplus, SiCsharp, SiCss3, SiExpress, SiGnubash, SiJavascript, SiKotlin, SiMariadb, SiMaterialui, SiMysql, SiNextdotjs, SiPostgresql, SiSwift, SiUbuntu, SiUikit } from 'react-icons/si'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
 
-const Skill = ({ tooltip, children }) => (
-    <Tooltip label={tooltip} fontSize="md">
-        <span>
-            {children}
-        </span>
-    </Tooltip>
-)
+const Skill = ({ tooltip, children }) => {
+    const [isLabelOpen, setIsLabelOpen] = useState(false)
+    return (
+        <Tooltip label={tooltip} fontSize="md" isOpen={isLabelOpen} >
+            <span onMouseEnter={() => setIsLabelOpen(true)}
+                onMouseLeave={() => setIsLabelOpen(false)}
+                onClick={() => setIsLabelOpen(true)}>
+                {children}
+            </span>
+        </Tooltip>
+    )
+}
 
 const Page = () => {
     const router = useRouter()
@@ -34,13 +41,14 @@ const Page = () => {
     let bio = router.locale == 'es-MX' ? 'Acerca de mi' : "About me"
     let bio_p1 = router.locale == 'es-MX' ?
         "Soy un estudiante de noveno semestre de la carrera de Ingeniería en Sistemas Computacionales en el Instituto Tecnológico de Morelia (ITM). Desde el 2020 desarrollo aplicaciones web para diversos clientes en "
-        : "I'm a student of the Computer Systems Engeneering career at the Instituto Tecológico de Morelia (ITM), currently cursing the ninth semester. Since 2020 he has been developing web applications for various clients at "
+        : "I'm a student of the Computer Systems Engeneering career at the Instituto Tecológico de Morelia (ITM), currently cursing the ninth semester. Since 2020 I have been developing web applications for various clients at "
     let bio_p2 = router.locale == 'es-MX' ?
         ", un equipo de desarrolladores formado por compañeros de la carrera."
         : ", a team of developers made up with fellow students from the carreer"
     let portfolio = router.locale == 'es-MX' ? 'Mi portafolio' : "My portfolio"
     let work = router.locale == 'es-MX' ? 'Historial laboral' : "Employment history"
     let cajero = router.locale == 'es-MX' ? 'Cajero' : "Cashier"
+    let ayudante = router.locale == 'es-MX' ? 'Ayudante' : 'Assistant'
     let desarrollador = router.locale == 'es-MX' ? 'Desarrollador Full-stack' : 'Full-stack Developer'
     let presente = router.locale == 'es-MX' ? 'presente' : 'present'
     let dragonware = router.locale == 'es-MX' ?
@@ -55,7 +63,50 @@ const Page = () => {
     let bachillerato = router.locale == 'es-MX' ? 'Bachillerato en Físico-Matemático' : 'Bachelor of Physics-Mathematics'
     let prepa = router.locale == 'es-MX' ? 'Mejor promedio de la generación.' : 'Best generational grade.'
     let tec = router.locale == 'es-MX' ? 'Especialidad de Ingeniería de Software y desarrollo de aplicaciones móviles.' : 'Software Engineering and mobile application development speciality.'
+    let tec2 = router.locale == 'es-MX' ? 'Actualmente llevo un promedio de 96.5 en la carrera.' : 'I currently have a 96.5 grade in the career'
     let skills = router.locale == 'es-MX' ? 'Habilidades' : 'Skills'
+    let aptitudes = router.locale == 'es-MX' ? 'Aptitudes' : 'Workflow'
+    let español = router.locale == 'es-MX' ? 'Español' : 'Spanish'
+    let español2 = router.locale == 'es-MX' ? 'Nativo' : 'Native'
+    let ingles = router.locale == "es-MX" ? 'Inglés' : 'English'
+    let ingles2 = router.locale == "es-MX" ? "Certificado nivel B2" : 'I have a level B2 certificate'
+    let idiomas = router.locale == "es-MX" ? "Idiomas" : "Languages"
+    let workflow = router.locale == "es-MX" ?
+        [
+            "Metodologías Ágiles & Scrim",
+            "Desarrollo Web y Móvil",
+            "Desarrollo Frontend y Backend",
+            "Desarrollo de Escritorio",
+            "Linux y Windows",
+            "Conocimientos de Deployment",
+            "MySQL y PostreSQL",
+            "Uso de Git",
+            "Conocimiento de API's",
+            "Trabajo en equipo",
+            "Responsable y puntual",
+            "Autodidacta y creativo"
+        ] :
+        [
+            'Agile Development & Scrum',
+            'Web and Mobile Development',
+            'Frontend and Backend Development',
+            'Desktop development',
+            'Linux and Windows OS',
+            'Deployment knowledge',
+            'MySQL and PostgreSQL',
+            'Git Workflow',
+            "API's knowledge",
+            "Teamwork",
+            'Responsible and punctual',
+            'Self-taught and creative'
+        ]
+    let contador = router.locale == "es-MX" ?
+        "Trabajé en el despacho del Contador Público José Rosendo López como ayudante, yo me encargaba de realizar facturas electrónicas, altas y bajas de trabajadores en el IMSS, realizar y enviar declaraciones informativas de terceros, y de organizar la agenda del contador." :
+        "I worked in the office of the Public Accountant José Rosendo López as an assistant, I was in charge of making electronic bills, registrations and cancellations of workers in the IMSS, making and sending third-party informative statements to the SAT, and organizing the accountant's agenda."
+
+    let trabajo = router.locale == "es-MX" ? "Despacho contable" : "Accounting firm"
+    let logros = router.locale == "es-MX" ? "Logros" : "Achievements"
+    let intereses = router.locale == "es-MX" ? "Intereses" : "Interests"
     return (
         <Layout>
             <Container maxW="container.xl" mt={2}>
@@ -134,15 +185,46 @@ const Page = () => {
 
                 <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
+                        {aptitudes}
+                    </Heading>
+                    {/* <Box align="center" mt={6} mb={10} display="flex" flexWrap="wrap" justifyContent="space-evenly" alignItems="center"> */}
+                    <SimpleGrid columns={2} spacing={2} my={6} >
+                        {workflow.map(w => (
+                            <Box display="flex" alignItems="center"><Icon as={AiOutlineCheckCircle} style={{ marginRight: 4 }} /> {w}</Box>
+                        ))}
+                    </SimpleGrid>
+                </Section>
+
+                <Section delay={0.1}>
+                    <Heading as="h3" variant="section-title">
+                        {idiomas}
+                    </Heading>
+                    <BioSection>
+                        <BioYear>{español}</BioYear>
+                        {español2}
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>{ingles}</BioYear>
+                        {ingles2}
+                    </BioSection>
+                </Section>
+
+                <Section delay={0.1}>
+                    <Heading as="h3" variant="section-title">
                         {work}
                     </Heading>
                     <Box>
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
-                            Zapatería Erendira <Meta>2017 - 2020</Meta> <MetaJob>{cajero}</MetaJob>
+                            Zapatería Erendira <Meta>2017 - 2018</Meta> <MetaJob>{cajero}</MetaJob>
                         </Heading>
                     </Box>
                     <Paragraph>{zapateria}</Paragraph>
-
+                    <Box>
+                        <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
+                            {trabajo} <Meta>2018 - 2020</Meta> <MetaJob>{ayudante}</MetaJob>
+                        </Heading>
+                    </Box>
+                    <Paragraph>{contador}</Paragraph>
                     <Box>
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
                             DragonWare <Meta>2020 - {presente}</Meta> <MetaJob>{desarrollador}</MetaJob>
@@ -168,21 +250,28 @@ const Page = () => {
                         </Heading>
                     </Box>
                     <Paragraph>{tec}</Paragraph>
+                    <Paragraph>{tec2}</Paragraph>
                 </Section>
 
-                {/* <Section delay={0.1}>
+                <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
-                        Bio
+                        {logros}
                     </Heading>
-                    <BioSection>
-                        <BioYear>1999</BioYear>
-                        Nació en Morelia Michoacan
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2017</BioYear>
-                        Comenzó a estudiar en el Instituto Técnologico de Morelia la carrera de Ingenieria en Sistemas Computacionales
-                    </BioSection>
-                </Section> */}
+                    {/* <Box align="center" mt={6} mb={10} display="flex" flexWrap="wrap" justifyContent="space-evenly" alignItems="center"> */}
+                    <SimpleGrid spacing={5} minChildWidth="50px" mt={6} mb={10}>
+
+                    </SimpleGrid>
+                </Section>
+
+                <Section delay={0.1}>
+                    <Heading as="h3" variant="section-title">
+                        {intereses}
+                    </Heading>
+                    {/* <Box align="center" mt={6} mb={10} display="flex" flexWrap="wrap" justifyContent="space-evenly" alignItems="center"> */}
+                    <SimpleGrid spacing={5} minChildWidth="50px" mt={6} mb={10}>
+
+                    </SimpleGrid>
+                </Section>
 
                 <Section delay={0.3}>
                     <Heading as="h3" variant="section-title">
