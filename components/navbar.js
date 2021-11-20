@@ -56,7 +56,7 @@ const Navbar = props => {
                     </LinkItem>
                 </Stack>
 
-                <Box flex={1} align="right" display="flex" alignItems="center" justifyContent="flex-end">
+                <Box flex={1} align="right" pr={2} display="flex" alignItems="center" justifyContent="flex-end">
                     <LocaleToggleButton />
                     <ThemeToggleButton />
                     <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>

@@ -201,8 +201,8 @@ const Page = () => {
                     </Heading>
                     {/* <Box align="center" mt={6} mb={10} display="flex" flexWrap="wrap" justifyContent="space-evenly" alignItems="center"> */}
                     <SimpleGrid columns={2} spacing={2} my={6} >
-                        {workflow.map(w => (
-                            <Box display="flex" alignItems="center"><Icon as={AiOutlineCheckCircle} style={{ marginRight: 4 }} /> {w}</Box>
+                        {workflow.map((w, index) => (
+                            <Box display="flex" alignItems="center" key={index}><Icon as={AiOutlineCheckCircle} style={{ marginRight: 4 }} /> {w}</Box>
                         ))}
                     </SimpleGrid>
                 </Section>
