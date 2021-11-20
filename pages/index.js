@@ -70,6 +70,8 @@ const Page = () => {
     let español2 = router.locale == 'es-MX' ? 'Nativo' : 'Native'
     let ingles = router.locale == "es-MX" ? 'Inglés' : 'English'
     let ingles2 = router.locale == "es-MX" ? "Certificado nivel B2" : 'I have a level B2 certificate'
+    let frances = router.locale == "es-MX" ? 'Francés' : 'French'
+    let frances2 = router.locale == "es-MX" ? "Certificado nivel A2" : 'I have a level A2 certificate'
     let idiomas = router.locale == "es-MX" ? "Idiomas" : "Languages"
     let workflow = router.locale == "es-MX" ?
         [
@@ -107,6 +109,16 @@ const Page = () => {
     let trabajo = router.locale == "es-MX" ? "Despacho contable" : "Accounting firm"
     let logros = router.locale == "es-MX" ? "Logros" : "Achievements"
     let intereses = router.locale == "es-MX" ? "Intereses" : "Interests"
+    let logros2 = router.locale == "es-MX" ?
+        "En 2017, gané el segundo lugar en el concurso de Fundamentos de Programación organizado en el Instituto Tecnológico de Morelia." :
+        "In 2017, I won the second place in the Programming Fundamentals contest organized at the Instituto Tecnológico de Morelia."
+    let logros3 = router.locale == "es-MX" ? "En 2020, participé en el concurso CODING CUP TECNM 2020 con el equipo 'PonyCode'" : "In 2020, I participated in the CODING CUP TECNM 2020 contest with the team 'PonyCode'."
+    let logros4 = router.locale == "es-MX" ?
+        "Junto con el equipo DragonWare, ayudé al desarrollo de las aplicaciones que obtuvieron el primer lugar en los proyectos de la Fábrica de Software (FAS) tres veces consecutivas." :
+        "Together with the DragonWare team, I helped with the development of the apps that were awarded with the first place three times in a row in the proyects of the Academic Sofwtare Factory."
+    let intereses2 = router.locale == "es-MX" ?
+        "Uno de mis objetivos a corto plazo es aprender acerca de los diferentes frameworks de javascript que existen para saber cual es mejor usar en un proyecto. Disfruto aprender de nuevas cosas y implementarlas en mis proyectos. En mi tiempo libre, me gusta jugar videojuegos, escuchar música y leer sobre diversas cosas que me parezcan interesantes en internet. Acualmente, estoy tratando de aprender coreano por mi cuenta" :
+        "One of my short term goals is to learn about all the different javascript frameworks that exist to know which one is better to use in a project.  I enjoy learning about new things and implementing that in my projects. In my free time, I like to play video games, listen to music, and read about all kinds of stuff on the internet to learn more. Currently, I'm trying to learn to speak Korean on my own."
     return (
         <Layout>
             <Container maxW="container.xl" mt={2}>
@@ -207,6 +219,10 @@ const Page = () => {
                         <BioYear>{ingles}</BioYear>
                         {ingles2}
                     </BioSection>
+                    <BioSection>
+                        <BioYear>{frances}</BioYear>
+                        {frances2}
+                    </BioSection>
                 </Section>
 
                 <Section delay={0.1}>
@@ -217,20 +233,23 @@ const Page = () => {
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
                             Zapatería Erendira <Meta>2017 - 2018</Meta> <MetaJob>{cajero}</MetaJob>
                         </Heading>
+                        <Paragraph>{zapateria}</Paragraph>
                     </Box>
-                    <Paragraph>{zapateria}</Paragraph>
-                    <Box>
+
+                    <Box mt={4}>
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
                             {trabajo} <Meta>2018 - 2020</Meta> <MetaJob>{ayudante}</MetaJob>
                         </Heading>
+                        <Paragraph>{contador}</Paragraph>
                     </Box>
-                    <Paragraph>{contador}</Paragraph>
-                    <Box>
+
+                    <Box mt={4}>
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
                             DragonWare <Meta>2020 - {presente}</Meta> <MetaJob>{desarrollador}</MetaJob>
                         </Heading>
+                        <Paragraph>{dragonware}</Paragraph>
                     </Box>
-                    <Paragraph>{dragonware}</Paragraph>
+
                 </Section>
 
                 <Section delay={0.1}>
@@ -241,36 +260,34 @@ const Page = () => {
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
                             Preparatoria Novel de Morelia <Meta>2014 - 2017</Meta> <MetaJob>{bachillerato}</MetaJob>
                         </Heading>
+                        <Paragraph>{prepa}</Paragraph>
                     </Box>
-                    <Paragraph>{prepa}</Paragraph>
 
-                    <Box>
+                    <Box mt={4}>
                         <Heading display="inline-block" as="h6" fontSize={16} mt={3} mb={2}>
                             Instituto Tecnológico de Morelia <Meta>2017 - {presente}</Meta> <MetaJob>{carrera}</MetaJob>
                         </Heading>
+                        <Paragraph>{tec}</Paragraph>
+                        <Paragraph>{tec2}</Paragraph>
                     </Box>
-                    <Paragraph>{tec}</Paragraph>
-                    <Paragraph>{tec2}</Paragraph>
                 </Section>
 
                 <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
                         {logros}
                     </Heading>
-                    {/* <Box align="center" mt={6} mb={10} display="flex" flexWrap="wrap" justifyContent="space-evenly" alignItems="center"> */}
-                    <SimpleGrid spacing={5} minChildWidth="50px" mt={6} mb={10}>
-
-                    </SimpleGrid>
+                    <Paragraph style={{ marginTop: 5 }}>{logros2}</Paragraph>
+                    <Paragraph style={{ marginTop: 5 }}>{logros3}</Paragraph>
+                    <Paragraph style={{ marginTop: 5 }}>{logros4}</Paragraph>
                 </Section>
 
                 <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
                         {intereses}
                     </Heading>
-                    {/* <Box align="center" mt={6} mb={10} display="flex" flexWrap="wrap" justifyContent="space-evenly" alignItems="center"> */}
-                    <SimpleGrid spacing={5} minChildWidth="50px" mt={6} mb={10}>
-
-                    </SimpleGrid>
+                    <Paragraph>
+                        {intereses2}
+                    </Paragraph>
                 </Section>
 
                 <Section delay={0.3}>
