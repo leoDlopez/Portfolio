@@ -2,6 +2,7 @@ import { Container, Heading, SimpleGrid, Divider } from "@chakra-ui/react";
 import Section from "../components/section";
 import { WorkGridItem } from '../components/grid-item'
 import Layout from '../components/layouts/article'
+import { useRouter } from "next/router"
 
 import thumbSgt from '../public/images/works/sgtepetate_1.png'
 import thumbAxen from '../public/images/works/axen_1.png'
@@ -15,109 +16,88 @@ import thumbSindical from '../public/images/works/sindical_1.png'
 import thumbUno from '../public/images/works/uno4cinco_1.png'
 import thumbVeinti from '../public/images/works/veintidos_1.png'
 import thumbZinnia from '../public/images/works/zinnia_1.png'
+
 const Works = () => {
+    const router = useRouter()
+    let titulo = router.locale == 'es-MX' ? 'Proyectos Web' : 'Web Projects'
+    let sgtepetate = router.locale == 'es-MX' ? 'Página web y plataforma de gestión para la granja trutícola El Tepetate' : 'Website and management platform for the El Tepetate truticultural farm'
+    let axen = router.locale == "es-MX" ? 'Página web para la empresa de inversiones Axen Capital' : 'Website for the investment company Axen Capital'
+    let comepasto = router.locale == "es-MX" ? 'E-commerce que integra Paypal y Stripe para la tienda de comida vegana Comepasto' : 'E-commerce that integrates Paypal and Stripe for the vegan food store Comepasto'
+    let consultarq = router.locale == "es-MX" ? 'Plataforma web de gestión de proyectos, para la consultoría de proyectos arquitectonicos ConsultarQ' : 'Web platform for project management, for the architectural project consultancy ConsultQ'
+    let danteeludier = router.locale == "es-MX" ? 'E-commerce para los cursos y eventos del coach empresarial Dante Eludier' : 'E-commerce for the courses and events of the business coach Dante Eludier'
+    let escuelas = router.locale == "es-MX" ? "Plataforma web de aprendizaje diseñada para el Sindicato del IMSS Sección XX" : 'Learning web platform designed for the IMSS Union Section XX'
+    let ielect = router.locale == "es-MX" ? 'Aplicación web para gestión y mapeo de los procesos electorales.' : 'Web application for management and mapping of electoral processes.'
+    let playlisthub = router.locale == "es-MX" ? 'Plataforma web para conectar artistas con curadores e influencers' : 'Web platform for connecting artists with curators and influencers.'
+    let sistemasindical = router.locale == "es-MX" ? 'Sistema de gestión web para administrar las oficinas del Sindicato del IMSS Sección XX' : 'Web management system to administer the offices of the IMSS Union Section XX'
+    let uno4cinco = router.locale == "es-MX" ? 'E-commerce para la venta de libros de la editorial Uno4cinco' : 'E-commerce for the sale of books from Uno4cinco publishing house'
+    let veintidos = router.locale == "es-MX" ? 'Página web para promocionar propiedades en venta y en renta de la agencia inmobiliaria Veintidos' : 'Web page to promote properties for sale or for rent of the real estate agency Veintidos'
+    let zinnia = router.locale == "es-MX" ? 'Página web para publicitar los eventos de la compañía escénica Zinnia' : 'Website to advertise the events of the Zinnia stage company'
     return (
         <Layout>
             <Container maxW="container.xl" mt={2} align="center">
                 <Heading as="h3" fontSize={20} mb={4} align="left">
-                    Works
+                    {titulo}
                 </Heading>
 
-                <SimpleGrid columns={[1, 1, 2]} gap={6}>
+                <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={6}>
                     <Section>
                         <WorkGridItem id="sgtepetate" title="SGTepetate" thumbnail={thumbSgt}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {sgtepetate}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="axen" title="Axen Capital" thumbnail={thumbAxen}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {axen}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="comepasto" title="Comepasto" thumbnail={thumbComepasto}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {comepasto}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="consultarq" title="ConsultarQ" thumbnail={thumbConsultarq}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {consultarq}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="danteeludier" title="Dante Eludier" thumbnail={thumbDante}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {danteeludier}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="escuelasindical" title="Escuela Sindical" thumbnail={thumbEscuela}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {escuelas}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="ielect" title="iElect" thumbnail={thumbElect}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {ielect}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="playlisthub" title="PlaylistHub" thumbnail={thumbPlay}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {playlisthub}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="sistemasindical" title="Sistema Gestor Sindical" thumbnail={thumbSindical}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {sistemasindical}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="uno4cinco" title="Uno4cinco" thumbnail={thumbUno}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {uno4cinco}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="veintidos" title="Veintidos" thumbnail={thumbVeinti}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {veintidos}
                         </WorkGridItem>
                     </Section>
                     <Section>
                         <WorkGridItem id="zinnia" title="Zinnia Compañía Escénica" thumbnail={thumbZinnia}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {zinnia}
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>
