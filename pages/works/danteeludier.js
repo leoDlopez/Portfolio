@@ -14,7 +14,7 @@ const Work = () => {
         <Layout title="SGTepetate">
             <Container>
                 <Title>
-                    SGTepetate <Badge>2020</Badge>
+                    Dante Eludier <Badge>2021</Badge>
                 </Title>
                 <P>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -22,8 +22,8 @@ const Work = () => {
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>{website}</Meta>
-                        <Link href="https://www.granjadetruchas.com/" isExternal>
-                            https://www.granjadetruchas.com/ <ExternalLinkIcon />
+                        <Link href="https://danteeludier.com/inicio" isExternal>
+                            https://danteeludier.com/ <ExternalLinkIcon />
                         </Link>
                     </ListItem>
                     <ListItem>
@@ -32,20 +32,20 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / Bootstrap / MariaDB / jQuery / JavaScript</span>
+                        <span>Laravel / React / Material UI / PostgreSQL / JavaScript / Inertia.js</span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/" isExternal>
-                            https://github.com/DragonWareMx/<ExternalLinkIcon />
+                        <Link href="https://github.com/DragonWareMx/DanteEludier" isExternal>
+                            https://github.com/DragonWareMx/DanteEludier<ExternalLinkIcon />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/sgtepetate_1.png" alt="SGTepetate" />
-                <WorkImage src="/images/works/sgtepetate_2.png" alt="SGTepetate" />
-                <WorkImage src="/images/works/sgtepetate_3.png" alt="SGTepetate" />
-                <WorkImage src="/images/works/sgtepetate_4.png" alt="SGTepetate" />
+                <WorkImage src="/images/works/dante_1.png" alt="Dante Eludier" />
+                <WorkImage src="/images/works/dante_2.png" alt="Dante Eludier" />
+                <WorkImage src="/images/works/dante_3.png" alt="Dante Eludier" />
+                <WorkImage src="/images/works/dante_4.png" alt="Dante Eludier" />
             </Container>
         </Layout>
     )

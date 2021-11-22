@@ -1,4 +1,4 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import { Container, Badge, Link, List, ListItem, SimpleGrid } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
@@ -14,38 +14,35 @@ const Work = () => {
         <Layout title="SGTepetate">
             <Container>
                 <Title>
-                    SGTepetate <Badge>2020</Badge>
+                    Cineponys <Badge>2021</Badge>
                 </Title>
                 <P>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>
-                        <Meta>{website}</Meta>
-                        <Link href="https://www.granjadetruchas.com/" isExternal>
-                            https://www.granjadetruchas.com/ <ExternalLinkIcon />
-                        </Link>
-                    </ListItem>
-                    <ListItem>
                         <Meta>{platform}</Meta>
-                        <span>Web</span>
+                        <span>Android / iOS</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / Bootstrap / MariaDB / jQuery / JavaScript</span>
+                        <span>React Native</span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/" isExternal>
-                            https://github.com/DragonWareMx/<ExternalLinkIcon />
+                        <Link href="https://github.com/leoDlopez/PrologAndroid" isExternal>
+                            https://github.com/leoDlopez/PrologAndroid<ExternalLinkIcon />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/sgtepetate_1.png" alt="SGTepetate" />
-                <WorkImage src="/images/works/sgtepetate_2.png" alt="SGTepetate" />
-                <WorkImage src="/images/works/sgtepetate_3.png" alt="SGTepetate" />
-                <WorkImage src="/images/works/sgtepetate_4.png" alt="SGTepetate" />
+                <SimpleGrid columns={2} gap={2}>
+                    <WorkImage src="/images/works/cineponys_1.png" alt="Cineponys" />
+                    <WorkImage src="/images/works/cineponys_2.png" alt="Cineponys" />
+                    <WorkImage src="/images/works/cineponys_3.png" alt="Cineponys" />
+                    <WorkImage src="/images/works/cineponys_5.png" alt="Cineponys" />
+                    <WorkImage src="/images/works/cineponys_4.png" alt="Cineponys" />
+                </SimpleGrid>
             </Container>
         </Layout>
     )

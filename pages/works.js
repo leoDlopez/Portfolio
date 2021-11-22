@@ -16,6 +16,7 @@ import thumbSindical from '../public/images/works/sindical_1.png'
 import thumbUno from '../public/images/works/uno4cinco_1.png'
 import thumbVeinti from '../public/images/works/veintidos_1.png'
 import thumbZinnia from '../public/images/works/zinnia_1.png'
+import cine from '../public/images/works/cineponys_thumb.png'
 
 const Works = () => {
     const router = useRouter()
@@ -26,12 +27,14 @@ const Works = () => {
     let consultarq = router.locale == "es-MX" ? 'Plataforma web de gestión de proyectos, para la consultoría de proyectos arquitectonicos ConsultarQ' : 'Web platform for project management, for the architectural project consultancy ConsultQ'
     let danteeludier = router.locale == "es-MX" ? 'E-commerce para los cursos y eventos del coach empresarial Dante Eludier' : 'E-commerce for the courses and events of the business coach Dante Eludier'
     let escuelas = router.locale == "es-MX" ? "Plataforma web de aprendizaje diseñada para el Sindicato del IMSS Sección XX" : 'Learning web platform designed for the IMSS Union Section XX'
-    let ielect = router.locale == "es-MX" ? 'Aplicación web para gestión y mapeo de los procesos electorales.' : 'Web application for management and mapping of electoral processes.'
-    let playlisthub = router.locale == "es-MX" ? 'Plataforma web para conectar artistas con curadores e influencers' : 'Web platform for connecting artists with curators and influencers.'
+    let ielect = router.locale == "es-MX" ? 'Aplicación web para gestión y mapeo de los procesos electorales' : 'Web application for management and mapping of electoral processes'
+    let playlisthub = router.locale == "es-MX" ? 'Plataforma web para conectar artistas con curadores e influencers' : 'Web platform for connecting artists with curators and influencers'
     let sistemasindical = router.locale == "es-MX" ? 'Sistema de gestión web para administrar las oficinas del Sindicato del IMSS Sección XX' : 'Web management system to administer the offices of the IMSS Union Section XX'
     let uno4cinco = router.locale == "es-MX" ? 'E-commerce para la venta de libros de la editorial Uno4cinco' : 'E-commerce for the sale of books from Uno4cinco publishing house'
     let veintidos = router.locale == "es-MX" ? 'Página web para promocionar propiedades en venta y en renta de la agencia inmobiliaria Veintidos' : 'Web page to promote properties for sale or for rent of the real estate agency Veintidos'
     let zinnia = router.locale == "es-MX" ? 'Página web para publicitar los eventos de la compañía escénica Zinnia' : 'Website to advertise the events of the Zinnia stage company'
+    let otros = router.locale == "es-MX" ? 'Otros' : 'Others'
+    let cineponys = router.locale == "es-MX" ? 'Aplicación móvil para sugerir al usuario películas' : 'Mobile app to suggest movies to the user based on their tastes'
     return (
         <Layout>
             <Container maxW="container.xl" mt={2} align="center">
@@ -98,6 +101,18 @@ const Works = () => {
                     <Section>
                         <WorkGridItem id="zinnia" title="Zinnia Compañía Escénica" thumbnail={thumbZinnia}>
                             {zinnia}
+                        </WorkGridItem>
+                    </Section>
+                </SimpleGrid>
+                <Divider my={6} />
+                <Heading as="h3" fontSize={20} mb={4} align="left">
+                    {otros}
+                </Heading>
+
+                <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={6}>
+                    <Section>
+                        <WorkGridItem id="cineponys" title="Cineponys" thumbnail={cine}>
+                            {cineponys}
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>
