@@ -10,6 +10,9 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'Comepasto es una página web del tipo E-commerce hecha para la tienda de comida vegana Comepasto. Este sitio web cuenta con una integración con las APIs de Paypal y Stripe para gestionar los pagos de las compras, y con Google Maps para calcular el costo del envío de productos a la dirección del cliente. Además de que la página cuenta con un gestor para que la gente de Comepasto pueda hacer actualizaciones de inventario, productos, recetas, gestionar compras y empleados.' :
+        'Comepasto is an E-commerce web page developed for the vegan food store Comepasto. This website has an integration with the APIs of Paypal and Stripe for the management of the payments of the sales, and with Google Maps to calculate the cost of the delivery of the products to the client address. Also, the page has a manager for the people of Comepasto to allow them to make updates of inventory, products, recipes, manage the sales and the employees. '
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +20,7 @@ const Work = () => {
                     Comepasto <Badge>2021</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>

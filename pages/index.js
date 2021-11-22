@@ -75,7 +75,7 @@ const Page = () => {
     let idiomas = router.locale == "es-MX" ? "Idiomas" : "Languages"
     let workflow = router.locale == "es-MX" ?
         [
-            "Metodologías Ágiles & Scrim",
+            "Metodologías Ágiles & Scrum",
             "Desarrollo Web y Móvil",
             "Desarrollo Frontend y Backend",
             "Desarrollo de Escritorio",
@@ -103,7 +103,7 @@ const Page = () => {
             'Self-taught and creative'
         ]
     let contador = router.locale == "es-MX" ?
-        "Trabajé en el despacho del Contador Público José Rosendo López como ayudante, yo me encargaba de realizar facturas electrónicas, altas y bajas de trabajadores en el IMSS, realizar y enviar declaraciones informativas de terceros, y de organizar la agenda del contador." :
+        "Trabajé en el despacho del Contador Público José Rosendo López como ayudante, yo me encargaba de realizar facturas electrónicas, altas y bajas de trabajadores en el IMSS, realizar y enviar declaraciones informativas de terceros al SAT, y de organizar la agenda del contador." :
         "I worked in the office of the Public Accountant José Rosendo López as an assistant, I was in charge of making electronic bills, registrations and cancellations of workers in the IMSS, making and sending third-party informative statements to the SAT, and organizing the accountant's agenda."
 
     let trabajo = router.locale == "es-MX" ? "Despacho contable" : "Accounting firm"

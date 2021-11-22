@@ -10,6 +10,9 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'Este proyecto es una página web hecha para la empresa Axen Capital con el proposito de que ellos pudieran ofrecer sus servicios de broker financiero y establecer otra manera de llegar a sus clientes.' :
+        'This project is a webpage developed for the company Axen Capital with the purpose that they could offer their financial broker services and establish another way to reach their clients.'
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +20,7 @@ const Work = () => {
                     Axen <Badge>2021</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>

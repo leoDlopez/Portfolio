@@ -10,6 +10,10 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'DanteEludier es una página web del tipo E-commerce hecha para la tienda del coach financiero Dante Eludier. Este sitio web cuenta con una integración con las APIs de Paypal y Stripe para gestionar los pagos de las compras, y también tiene un sistema de envío de boletos QR por correo electrónico para entrar a los eventos. Además de que la página cuenta con un gestor para poder hacer actualizaciones de los eventos y gestionar las compras.' :
+        'DanteEludier is an E-commerce web page made for the business coach Dante Eludier. This website has an integration with the APIs of Paypal and Stripe for the management of the payments of the sales and has a system for sending QR tickets by email to enter the events. Also, the page has a manager that allows to make updates of the events and manage the sales.'
+
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +21,7 @@ const Work = () => {
                     Dante Eludier <Badge>2021</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>
