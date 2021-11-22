@@ -10,6 +10,9 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'Uno4cinco es una página web del tipo E-commerce desarrollada para la editorial Uno4cinco. Este sitio web cuenta con una integración con las APIs de Paypal y Stripe para gestionar los pagos de las compras. Además de que la página cuenta con un gestor para hacer actualizaciones de libros y gestionar las ventas.' :
+        'Uno4cinco is an E-commerce web page developed for the Uno4cinco publishing house. This website has an integration with the APIs of Paypal and Stripe for the management of the payments of the sales. Also, the page has a manager to make updates of books and manage the sales. '
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +20,7 @@ const Work = () => {
                     Uno4cinco <Badge>2020</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>

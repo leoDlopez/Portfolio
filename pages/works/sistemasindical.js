@@ -10,6 +10,10 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'Este proyecto fue desarrollado para el Sindicato del IMSS Sección XX. Las funciones de este sistema web es el de administrar las 6 distintas oficinas que tienen en el sindicato, básicamente el sistema está conformado por 6 ABCC (Altas, Bajas, Cambios y Consultas), uno para cada oficina.' :
+        'This project was developed for the IMSS Union Section XX. The function of this web system is the management of the six offices that the Union has. The system is formed by six CRUD (Create, Read, Update and Delete), each one for one office.'
+
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +21,7 @@ const Work = () => {
                     Sistema Gestor Sindical <Badge>2021</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>

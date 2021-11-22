@@ -10,6 +10,10 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'Este proyecto es una página web desarrollada para la compañía escénica Zinnia, con el proposito de proporcionar más información sobre sus obras, producciones, proyectos y sus próximos eventos.' :
+        'This project is a web page developed for the Zinnia stage company, with the purpose of giving more information about their plays, productions, projects and their next events.'
+
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +21,7 @@ const Work = () => {
                     Zinnia <Badge>2021</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>

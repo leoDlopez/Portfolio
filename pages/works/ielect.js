@@ -10,6 +10,10 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'iElect es una aplicación web desarrollada para ayudar con la gestión y el mapeo de procesos electorales en el estado de Michoacán. Entre sus funciones están el de administrar campañas, brigadistas, simpatizantes y generar datos estadísticos.' :
+        'iElect is a web application developed to help with the management and mapping of electoral processes in the state of Michoacan. Its functions include managing campaigns, brigade members, supporters, and generating statistical data.'
+
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +21,7 @@ const Work = () => {
                     iElect <Badge>2021</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>

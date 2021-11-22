@@ -10,6 +10,10 @@ const Work = () => {
     let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
     let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
     let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
+    let descripcion = router.locale == 'es-MX' ?
+        'Playlisthub es una aplicación web que se conecta con la API de Spotify para poder conectar a músicos con curadores. El próposito de esto es que los músicos puedan pagar para que un curador ponga su cancion en alguna de sus playlist con miles de seguidores y consigan mas oyentes.' :
+        "Playlisthub is a web application that connects with the Spotify API to connect musicians with curators. The purpose of this is that the musicians can pay to get their songs in a curator's playlist whit thousands of followers and by doing that they can get more listeners."
+
     return (
         <Layout title="SGTepetate">
             <Container>
@@ -17,7 +21,7 @@ const Work = () => {
                     Playlisthub <Badge>2020</Badge>
                 </Title>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {descripcion}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>
