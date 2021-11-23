@@ -21,7 +21,7 @@ import LocaleToggleButton from './locale-toggle-button'
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
     return (
         <NextLink href={href}>
             <Link p={2} bg={active ? 'glassTeal' : undefined} color={active ? '#202023' : inactiveColor}>

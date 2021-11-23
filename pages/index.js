@@ -4,7 +4,7 @@ import Section from "../components/section"
 import Paragraph from "../components/paragraph"
 import { BioSection, BioYear } from "../components/bio"
 import Layout from '../components/layouts/article'
-import { ChevronRightIcon } from "@chakra-ui/icons"
+import { ChevronRightIcon, DownloadIcon } from "@chakra-ui/icons"
 import {
     IoLogoDiscord,
     IoLogoGithub,
@@ -46,6 +46,7 @@ const Page = () => {
         ", un equipo de desarrolladores formado por compañeros de la carrera."
         : ", a team of developers made up with fellow students from the carreer"
     let portfolio = router.locale == 'es-MX' ? 'Mi portafolio' : "My portfolio"
+    let cv = router.locale == 'es-MX' ? 'Mi CV' : "My CV"
     let work = router.locale == 'es-MX' ? 'Historial laboral' : "Employment history"
     let cajero = router.locale == 'es-MX' ? 'Cajero' : "Cashier"
     let ayudante = router.locale == 'es-MX' ? 'Ayudante' : 'Assistant'
@@ -149,12 +150,17 @@ const Page = () => {
                     <Paragraph>{bio_p1}
                         <Link href="https://dragonware.com.mx/" isExternal>DragonWare</Link>
                         {bio_p2}</Paragraph>
-                    <Box align="center" my={4}>
+                    <Box align="center" my={4} display="flex" justifyContent="space-evenly" >
                         <NextLink href="/works">
-                            <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+                            <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" width={150}>
                                 {portfolio}
                             </Button>
                         </NextLink>
+                        <Link href="/CVLeonardoLopez.pdf" isExternal>
+                            <Button rightIcon={<DownloadIcon />} colorScheme="cyan" width={150}>
+                                {cv}
+                            </Button>
+                        </Link>
                     </Box>
                 </Section>
 
