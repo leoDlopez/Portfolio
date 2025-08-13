@@ -9,8 +9,16 @@ const Main = ({ children, router }) => {
     return (
         <Box as="main" pb={8}>
             <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/images/favicon.png" type="image/png" />
+                <meta name="theme-color" content="#0ea5e9" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <link
+                    rel="icon"
+                    href="/images/favicon.svg"
+                    type="image/svg+xml"
+                />
                 <title>Leonardo Lopez - Portfolio</title>
             </Head>
 

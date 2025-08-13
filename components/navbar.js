@@ -24,7 +24,11 @@ const LinkItem = ({ href, path, children }) => {
     const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
     return (
         <NextLink href={href}>
-            <Link p={2} bg={active ? 'glassTeal' : undefined} color={active ? '#202023' : inactiveColor}>
+            <Link
+                p={2}
+                bg={active ? 'glassTeal' : undefined}
+                color={active ? '#202023' : inactiveColor}
+            >
                 {children}
             </Link>
         </NextLink>
@@ -42,28 +46,52 @@ const Navbar = props => {
             bg={useColorModeValue('#ffffff40', '#20202380')}
             css={{ backdropFilter: 'blur(10px)' }}
             zIndex={1}
-            {...props}>
-            <Container display="flex" p={2} maxW="container.md" wrap="wrap" align="center" justify="space-between">
+            {...props}
+        >
+            <Container
+                display="flex"
+                p={2}
+                maxW="container.md"
+                wrap="wrap"
+                align="center"
+                justify="space-between"
+            >
                 <Flex align="center" mr={5}>
                     <Heading as="h1" size="lg" letterSpacing={'tighter'}>
                         <Logo />
                     </Heading>
                 </Flex>
-                <Stack direction={{ base: 'column', md: 'row' }} display={{ base: 'none', md: 'flex' }}
-                    width={{ base: 'full', md: 'auto' }} alignItems="center" flexGrow={1} mt={{ base: 4, nmd: 0 }}>
+                <Stack
+                    direction={{ base: 'column', md: 'row' }}
+                    display={{ base: 'none', md: 'flex' }}
+                    width={{ base: 'full', md: 'auto' }}
+                    alignItems="center"
+                    flexGrow={1}
+                    mt={{ base: 4, nmd: 0 }}
+                >
                     <LinkItem href="/works" path={path}>
                         Works
                     </LinkItem>
                 </Stack>
 
-                <Box flex={1} align="right" pr={2} display="flex" alignItems="center" justifyContent="flex-end">
+                <Box
+                    flex={1}
+                    align="right"
+                    pr={2}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="flex-end"
+                >
                     <LocaleToggleButton />
                     <ThemeToggleButton />
                     <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
                         <Menu isLazy id="navbar-menu">
-                            <MenuButton as={IconButton}
+                            <MenuButton
+                                as={IconButton}
                                 icon={<HamburgerIcon />}
-                                variant="outline" aria-label="options" />
+                                variant="outline"
+                                aria-label="options"
+                            />
                             <MenuList>
                                 <NextLink href="/" passHref>
                                     <MenuItem as={Link}>About</MenuItem>
@@ -71,7 +99,12 @@ const Navbar = props => {
                                 <NextLink href="/works" passHref>
                                     <MenuItem as={Link}>Works</MenuItem>
                                 </NextLink>
-                                <MenuItem as={Link} href={"https://github.com/leoDlopez"}>My GitHub</MenuItem>
+                                <MenuItem
+                                    as={Link}
+                                    href={'https://github.com/leoDlopez'}
+                                >
+                                    My GitHub
+                                </MenuItem>
                             </MenuList>
                         </Menu>
                     </Box>
