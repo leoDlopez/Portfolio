@@ -56,14 +56,12 @@ const Work = () => {
 
     const outcomes = isEs
         ? [
-              '🚀 Lanzamiento a producción de la app.',
-              '🔌 Migración de CLABEs referenciadas a Paymax/Bankaool en 1 día, sin impacto a clientes.',
-              '🧱 Base funcional que permitió el refactor posterior (v2) hacia arquitectura limpia.'
+              'Lanzamiento a producción de la app.',
+              'Base funcional que permitió el refactor posterior (v2) hacia arquitectura limpia.'
           ]
         : [
-              '🚀 App launched to production.',
-              '🔌 Referenced CLABEs migration to Paymax/Bankaool in 1 day with no customer impact.',
-              '🧱 Functional foundation that enabled the later clean-architecture refactor (v2).'
+              'App launched to production.',
+              'Functional foundation that enabled the later clean-architecture refactor (v2).'
           ]
 
     return (
@@ -112,16 +110,8 @@ const Work = () => {
                 <SimpleGrid columns={{ base: 1 }} gap={3}>
                     {/* Actualiza con tus assets reales */}
                     <WorkImage
-                        src="/images/works/axenlife_v1_1.png"
+                        src="/images/works/axenlife-1.webp"
                         alt="Axen Life API v1 — overview"
-                    />
-                    <WorkImage
-                        src="/images/works/axenlife_v1_2.png"
-                        alt="Axen Life API v1 — endpoints"
-                    />
-                    <WorkImage
-                        src="/images/works/axenlife_v1_3.png"
-                        alt="Axen Life API v1 — integrations"
                     />
                 </SimpleGrid>
             </Container>
