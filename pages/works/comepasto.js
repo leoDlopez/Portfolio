@@ -1,32 +1,47 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import {
+    Container,
+    Badge,
+    Link,
+    List,
+    ListItem,
+    SimpleGrid
+} from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const Work = () => {
-    const router = useRouter()
-    let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
-    let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
-    let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
-    let descripcion = router.locale == 'es-MX' ?
-        'Comepasto es una página web del tipo E-commerce hecha para la tienda de comida vegana Comepasto. Este sitio web cuenta con una integración con las APIs de Paypal y Stripe para gestionar los pagos de las compras, y con Google Maps para calcular el costo del envío de productos a la dirección del cliente. Además de que la página cuenta con un gestor para que la gente de Comepasto pueda hacer actualizaciones de inventario, productos, recetas, gestionar compras y empleados.' :
-        'Comepasto is an E-commerce web page developed for the vegan food store Comepasto. This website has an integration with the APIs of Paypal and Stripe for the management of the payments of the sales, and with Google Maps to calculate the cost of the delivery of the products to the client address. Also, the page has a manager for the people of Comepasto to allow them to make updates of inventory, products, recipes, manage the sales and the employees. '
+    const { locale } = useRouter()
+    const isEs = locale?.startsWith('es')
+
+    const website = isEs ? 'Sitio web' : 'Website'
+    const platform = isEs ? 'Plataforma' : 'Platform'
+    const repository = isEs ? 'Repositorio' : 'Repository'
+
+    const descripcion = isEs
+        ? 'E-commerce para la tienda de comida vegana Comepasto. Integra pagos con PayPal y Stripe y usa Google Maps para calcular el costo de envío según la dirección del cliente. Incluye un panel para gestionar inventario, productos, recetas, pedidos y empleados.'
+        : 'E-commerce for the vegan food store Comepasto. Integrates PayPal and Stripe for payments and uses Google Maps to calculate delivery costs based on the customer’s address. Includes an admin panel to manage inventory, products, recipes, orders and staff.'
+
     return (
-        <Layout title="SGTepetate">
+        <Layout title="Comepasto">
             <Container>
                 <Title>
                     Comepasto <Badge>2021</Badge>
                 </Title>
-                <P>
-                    {descripcion}
-                </P>
+
+                <P>{descripcion}</P>
+
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>{website}</Meta>
-                        <Link href="https://comepasto.com/inicio" isExternal>
-                            https://comepasto.com/ <ExternalLinkIcon />
+                        <Link
+                            href="https://comepasto.com/inicio"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            comepasto.com <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                     <ListItem>
@@ -35,20 +50,42 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / React / Material UI / MySQL / JavaScript / Inertia.js</span>
+                        <span>
+                            Laravel / React / Material UI / MySQL / Inertia.js /
+                            JavaScript
+                        </span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/comepasto" isExternal>
-                            https://github.com/DragonWareMx/comepasto<ExternalLinkIcon />
+                        <Link
+                            href="https://github.com/DragonWareMx/comepasto"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            github.com/DragonWareMx/comepasto{' '}
+                            <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/comepasto_1.png" alt="Comepasto" />
-                <WorkImage src="/images/works/comepasto_2.png" alt="Comepasto" />
-                <WorkImage src="/images/works/comepasto_3.png" alt="Comepasto" />
-                <WorkImage src="/images/works/comepasto_4.png" alt="Comepasto" />
+                <SimpleGrid columns={{ base: 1 }} gap={3}>
+                    <WorkImage
+                        src="/images/works/comepasto_1.png"
+                        alt="Comepasto — home"
+                    />
+                    <WorkImage
+                        src="/images/works/comepasto_2.png"
+                        alt="Comepasto — catálogo"
+                    />
+                    <WorkImage
+                        src="/images/works/comepasto_3.png"
+                        alt="Comepasto — detalle"
+                    />
+                    <WorkImage
+                        src="/images/works/comepasto_4.png"
+                        alt="Comepasto — admin"
+                    />
+                </SimpleGrid>
             </Container>
         </Layout>
     )

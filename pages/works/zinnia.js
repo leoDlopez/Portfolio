@@ -1,33 +1,48 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import {
+    Container,
+    Badge,
+    Link,
+    List,
+    ListItem,
+    SimpleGrid
+} from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const Work = () => {
-    const router = useRouter()
-    let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
-    let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
-    let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
-    let descripcion = router.locale == 'es-MX' ?
-        'Este proyecto es una página web desarrollada para la compañía escénica Zinnia, con el proposito de proporcionar más información sobre sus obras, producciones, proyectos y sus próximos eventos.' :
-        'This project is a web page developed for the Zinnia stage company, with the purpose of giving more information about their plays, productions, projects and their next events.'
+    const { locale } = useRouter()
+    const isEs = locale?.startsWith('es')
+
+    const website = isEs ? 'Sitio web' : 'Website'
+    const platform = isEs ? 'Plataforma' : 'Platform'
+    const repository = isEs ? 'Repositorio' : 'Repository'
+
+    const descripcion = isEs
+        ? 'Sitio institucional para la compañía escénica Zinnia, con secciones de obras, producciones, proyectos y próximos eventos.'
+        : 'Institutional website for the stage company Zinnia, featuring sections for plays, productions, projects, and upcoming events.'
 
     return (
-        <Layout title="SGTepetate">
+        <Layout title="Zinnia">
             <Container>
                 <Title>
                     Zinnia <Badge>2021</Badge>
                 </Title>
-                <P>
-                    {descripcion}
-                </P>
+
+                <P>{descripcion}</P>
+
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>{website}</Meta>
-                        <Link href="http://zinniacompaniaescenica.com.mx/" isExternal>
-                            http://zinniacompaniaescenica.com.mx/ <ExternalLinkIcon />
+                        <Link
+                            href="http://zinniacompaniaescenica.com.mx/"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            zinniacompaniaescenica.com.mx{' '}
+                            <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                     <ListItem>
@@ -36,20 +51,41 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / UIkit / MySQL / jQuery / JavaScript</span>
+                        <span>
+                            Laravel / UIkit / MySQL / jQuery / JavaScript
+                        </span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/Zinnia" isExternal>
-                            https://github.com/DragonWareMx/Zinnia<ExternalLinkIcon />
+                        <Link
+                            href="https://github.com/DragonWareMx/Zinnia"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            github.com/DragonWareMx/Zinnia{' '}
+                            <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/zinnia_1.png" alt="Zinnia" />
-                <WorkImage src="/images/works/zinnia_2.png" alt="Zinnia" />
-                <WorkImage src="/images/works/zinnia_3.png" alt="Zinnia" />
-                <WorkImage src="/images/works/zinnia_4.png" alt="Zinnia" />
+                <SimpleGrid columns={{ base: 1 }} gap={3}>
+                    <WorkImage
+                        src="/images/works/zinnia_1.png"
+                        alt="Zinnia — hero"
+                    />
+                    <WorkImage
+                        src="/images/works/zinnia_2.png"
+                        alt="Zinnia — sección"
+                    />
+                    <WorkImage
+                        src="/images/works/zinnia_3.png"
+                        alt="Zinnia — sección"
+                    />
+                    <WorkImage
+                        src="/images/works/zinnia_4.png"
+                        alt="Zinnia — sección"
+                    />
+                </SimpleGrid>
             </Container>
         </Layout>
     )

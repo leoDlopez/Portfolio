@@ -1,33 +1,47 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import {
+    Container,
+    Badge,
+    Link,
+    List,
+    ListItem,
+    SimpleGrid
+} from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const Work = () => {
-    const router = useRouter()
-    let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
-    let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
-    let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
-    let descripcion = router.locale == 'es-MX' ?
-        'Playlisthub es una aplicación web que se conecta con la API de Spotify para poder conectar a músicos con curadores. El próposito de esto es que los músicos puedan pagar para que un curador ponga su cancion en alguna de sus playlist con miles de seguidores y consigan mas oyentes.' :
-        "Playlisthub is a web application that connects with the Spotify API to connect musicians with curators. The purpose of this is that the musicians can pay to get their songs in a curator's playlist whit thousands of followers and by doing that they can get more listeners."
+    const { locale } = useRouter()
+    const isEs = locale?.startsWith('es')
+
+    const website = isEs ? 'Sitio web' : 'Website'
+    const platform = isEs ? 'Plataforma' : 'Platform'
+    const repository = isEs ? 'Repositorio' : 'Repository'
+
+    const descripcion = isEs
+        ? 'Aplicación web que integra la API de Spotify para conectar músicos con curadores de playlists. Usa una moneda interna (tokens): los artistas recargan saldo (PayPal, en esa versión) y gastan tokens para promocionar canciones; los curadores reciben tokens/pagos por revisiones y colocaciones, ayudando a impulsar oyentes.'
+        : 'Web app integrating the Spotify API to connect musicians with playlist curators. It uses an internal currency (tokens): artists top up balance (PayPal in that version) and spend tokens to promote tracks; curators earn tokens/payments for reviews and placements, helping drive listeners.'
 
     return (
-        <Layout title="SGTepetate">
+        <Layout title="Playlisthub">
             <Container>
                 <Title>
                     Playlisthub <Badge>2020</Badge>
                 </Title>
-                <P>
-                    {descripcion}
-                </P>
+
+                <P>{descripcion}</P>
+
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>{website}</Meta>
-                        <Link href="https://app.playlisthub.com.mx/login" isExternal>
-                            https://app.playlisthub.com.mx<ExternalLinkIcon />
+                        <Link
+                            href="https://app.playlisthub.com.mx/login"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            app.playlisthub.com.mx <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                     <ListItem>
@@ -36,21 +50,46 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / MySQL / jQuery / JavaScript</span>
+                        <span>
+                            Laravel / MySQL / jQuery / JavaScript / Spotify API
+                            (OAuth 2.0) / PayPal SDK
+                        </span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/playlisthub" isExternal>
-                            https://github.com/DragonWareMx/playlisthub<ExternalLinkIcon />
+                        <Link
+                            href="https://github.com/DragonWareMx/playlisthub"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            github.com/DragonWareMx/playlisthub{' '}
+                            <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/playlisthub_1.png" alt="Playlisthub" />
-                <WorkImage src="/images/works/playlisthub_2.png" alt="Playlisthub" />
-                <WorkImage src="/images/works/playlisthub_3.png" alt="Playlisthub" />
-                <WorkImage src="/images/works/playlisthub_4.png" alt="Playlisthub" />
-                <WorkImage src="/images/works/playlisthub_5.png" alt="Playlisthub" />
+                <SimpleGrid columns={{ base: 1 }} gap={3}>
+                    <WorkImage
+                        src="/images/works/playlisthub_1.png"
+                        alt="Playlisthub — login"
+                    />
+                    <WorkImage
+                        src="/images/works/playlisthub_2.png"
+                        alt="Playlisthub — dashboard"
+                    />
+                    <WorkImage
+                        src="/images/works/playlisthub_3.png"
+                        alt="Playlisthub — playlists"
+                    />
+                    <WorkImage
+                        src="/images/works/playlisthub_4.png"
+                        alt="Playlisthub — submissions"
+                    />
+                    <WorkImage
+                        src="/images/works/playlisthub_5.png"
+                        alt="Playlisthub — detail"
+                    />
+                </SimpleGrid>
             </Container>
         </Layout>
     )

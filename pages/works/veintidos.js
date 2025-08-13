@@ -1,32 +1,47 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import {
+    Container,
+    Badge,
+    Link,
+    List,
+    ListItem,
+    SimpleGrid
+} from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const Work = () => {
-    const router = useRouter()
-    let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
-    let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
-    let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
-    let descripcion = router.locale == 'es-MX' ?
-        'Veintidos es una plataforma web desarrollada para el grupo inmobiliario Veintidos. La plataforma cuenta con dos partes. La primera es una página web para que los clientes accedan y puedan ver las propiedades que hay disponibles en venta y se puedan poner en contacto con Veintidos. La segunda parte es una plataforma de gestión donde se puede administrar las propiedades que se muestran en la página.' :
-        'Veintidos is a web platform developed for the real estate group Veintidos. The platform has two parts. The first is a web page so that clients can access and see the properties that are available for sale and can contact Veintidos. The second part is a management platform where you can manage the properties displayed on the webpage.'
+    const { locale } = useRouter()
+    const isEs = locale?.startsWith('es')
+
+    const website = isEs ? 'Sitio web' : 'Website'
+    const platform = isEs ? 'Plataforma' : 'Platform'
+    const repository = isEs ? 'Repositorio' : 'Repository'
+
+    const descripcion = isEs
+        ? 'Plataforma web para el grupo inmobiliario Veintidos. Consta de dos partes: sitio público de listados para que clientes consulten propiedades y se contacten, y un panel de administración para gestionar los inmuebles que se muestran en el sitio.'
+        : 'Web platform for Veintidos real estate. It has two parts: a public listings site where clients can browse properties and get in touch, and an admin dashboard to manage the properties shown on the site.'
+
     return (
-        <Layout title="SGTepetate">
+        <Layout title="Veintidos">
             <Container>
                 <Title>
                     Veintidos <Badge>2020</Badge>
                 </Title>
-                <P>
-                    {descripcion}
-                </P>
+
+                <P>{descripcion}</P>
+
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>{website}</Meta>
-                        <Link href="https://veintidos.com.mx/inicio" isExternal>
-                            https://veintidos.com.mx/<ExternalLinkIcon />
+                        <Link
+                            href="https://veintidos.com.mx/"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            veintidos.com.mx <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                     <ListItem>
@@ -35,20 +50,41 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / Bootstrap / MySQL / jQuery / JavaScript</span>
+                        <span>
+                            Laravel / Bootstrap / MySQL / jQuery / JavaScript
+                        </span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/veintidos" isExternal>
-                            https://github.com/DragonWareMx/veintidos<ExternalLinkIcon />
+                        <Link
+                            href="https://github.com/DragonWareMx/veintidos"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            github.com/DragonWareMx/veintidos{' '}
+                            <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/veintidos_1.png" alt="Veintidos" />
-                <WorkImage src="/images/works/veintidos_2.png" alt="Veintidos" />
-                <WorkImage src="/images/works/veintidos_3.png" alt="Veintidos" />
-                <WorkImage src="/images/works/veintidos_4.png" alt="Veintidos" />
+                <SimpleGrid columns={{ base: 1 }} gap={3}>
+                    <WorkImage
+                        src="/images/works/veintidos_1.png"
+                        alt="Veintidos — home"
+                    />
+                    <WorkImage
+                        src="/images/works/veintidos_2.png"
+                        alt="Veintidos — listado"
+                    />
+                    <WorkImage
+                        src="/images/works/veintidos_3.png"
+                        alt="Veintidos — detalle"
+                    />
+                    <WorkImage
+                        src="/images/works/veintidos_4.png"
+                        alt="Veintidos — admin"
+                    />
+                </SimpleGrid>
             </Container>
         </Layout>
     )

@@ -1,28 +1,37 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import {
+    Container,
+    Badge,
+    Link,
+    List,
+    ListItem,
+    SimpleGrid
+} from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const Work = () => {
-    const router = useRouter()
-    let website = router.locale == 'es-MX' ? 'Sitio web' : 'Website'
-    let platform = router.locale == 'es-MX' ? 'Plataforma' : 'Platform'
-    let repository = router.locale == 'es-MX' ? 'Repositorio' : 'Repository'
-    let descripcion = router.locale == 'es-MX' ?
-        'Este proyecto fue desarrollado para el Sindicato del IMSS Sección XX. Las funciones de este sistema web es el de administrar las 6 distintas oficinas que tienen en el sindicato, básicamente el sistema está conformado por 6 ABCC (Altas, Bajas, Cambios y Consultas), uno para cada oficina.' :
-        'This project was developed for the IMSS Union Section XX. The function of this web system is the management of the six offices that the Union has. The system is formed by six CRUD (Create, Read, Update and Delete), each one for one office.'
+    const { locale } = useRouter()
+    const isEs = locale?.startsWith('es')
+
+    const platform = isEs ? 'Plataforma' : 'Platform'
+    const repository = isEs ? 'Repositorio' : 'Repository'
+
+    const descripcion = isEs
+        ? 'Sistema web para el Sindicato del IMSS Sección XX. Centraliza la gestión de seis oficinas del sindicato; cada oficina cuenta con su propio módulo ABCC (Altas, Bajas, Cambios y Consultas) para administrar su información y procesos. El enfoque fue unificar formularios, validaciones y listados con filtros para agilizar el trabajo administrativo.'
+        : 'Web system for IMSS Union Section XX. It centralizes the management of six union offices; each office has its own CRUD module to handle its information and processes. The focus was to standardize forms, validations, and filtered listings to streamline administrative work.'
 
     return (
-        <Layout title="SGTepetate">
+        <Layout title="Sistema Gestor Sindical">
             <Container>
                 <Title>
                     Sistema Gestor Sindical <Badge>2021</Badge>
                 </Title>
-                <P>
-                    {descripcion}
-                </P>
+
+                <P>{descripcion}</P>
+
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>{platform}</Meta>
@@ -30,20 +39,42 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Laravel / React / Materialize / Material UI / MySQL / jQuery / JavaScript / Inertia.js</span>
+                        <span>
+                            Laravel / React / Materialize / Material UI / MySQL
+                            / jQuery / Inertia.js / JavaScript
+                        </span>
                     </ListItem>
                     <ListItem>
                         <Meta>{repository}</Meta>
-                        <Link href="https://github.com/DragonWareMx/SistemaGestorSindical" isExternal>
-                            https://github.com/DragonWareMx/SistemaGestorSindical<ExternalLinkIcon />
+                        <Link
+                            href="https://github.com/DragonWareMx/SistemaGestorSindical"
+                            isExternal
+                            rel="noopener noreferrer"
+                        >
+                            github.com/DragonWareMx/SistemaGestorSindical{' '}
+                            <ExternalLinkIcon mx="2px" />
                         </Link>
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/sindical_1.png" alt="Sistema Gestor Sindical" />
-                <WorkImage src="/images/works/sindical_2.png" alt="Sistema Gestor Sindical" />
-                <WorkImage src="/images/works/sindical_3.png" alt="Sistema Gestor Sindical" />
-                <WorkImage src="/images/works/sindical_4.png" alt="Sistema Gestor Sindical" />
+                <SimpleGrid columns={{ base: 1 }} gap={3}>
+                    <WorkImage
+                        src="/images/works/sindical_1.png"
+                        alt="Sistema Gestor Sindical — dashboard"
+                    />
+                    <WorkImage
+                        src="/images/works/sindical_2.png"
+                        alt="Sistema Gestor Sindical — módulo"
+                    />
+                    <WorkImage
+                        src="/images/works/sindical_3.png"
+                        alt="Sistema Gestor Sindical — listado"
+                    />
+                    <WorkImage
+                        src="/images/works/sindical_4.png"
+                        alt="Sistema Gestor Sindical — detalle"
+                    />
+                </SimpleGrid>
             </Container>
         </Layout>
     )
